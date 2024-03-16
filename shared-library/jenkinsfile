@@ -1,0 +1,18 @@
+@Library("my-shared-library") _
+pipeline {
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Greetings') {
+      steps {
+        greetings()
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
+}
